@@ -1,0 +1,30 @@
+{
+  "users": [
+    {
+      "id": 17,				
+      "name": "Daniel de Sales",
+      "email": "ssales.daniel@gmail.com",
+	  "senha": "admin145",
+	  "department": "Financial",
+	  "admin": true
+    },
+	{
+      "id": 42,				
+      "name": "Ana Bolena",
+      "email": "ana.bolena@gmail.com",
+	  "senha": "bolena222",
+	  "department": "Technology",
+	  "admin": false
+    }
+  ],
+  "department": [
+    {
+      "id": 1,				
+      "name": "Financial"
+    },
+	{
+      "id": 2,				
+      "name": "Technology"
+    }
+  ]
+}
