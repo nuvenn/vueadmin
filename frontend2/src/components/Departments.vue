@@ -1,9 +1,9 @@
 <template>
-  <div class="home">
+  <section class="department">
     <v-app dark>
       <v-content>
         <Menu></Menu>
-        <v-layout>
+        <v-layout align-center justify-center class="department-content">
           <v-flex xs12 sm8 md4>
             <v-subheader>Departments</v-subheader>
             <v-card v-for="department in departments" :key="department.id">
@@ -22,7 +22,7 @@
         </v-layout>
       </v-content>
     </v-app>
-  </div>
+  </section>
 </template>
 <script>
 import DepartmentsService from '../services/DepartmentsService'
@@ -47,4 +47,7 @@ export default {
 </script>
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.department-content {
+    padding: 1em;
+}
 </style>

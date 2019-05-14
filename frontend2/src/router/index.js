@@ -5,6 +5,7 @@ import axios from 'axios'
 import VueAxios from 'vue-axios'
 import Login from '../components/Login'
 import Departments from '../components/Departments'
+import Employees from '../components/Employees'
 import 'vuetify/dist/vuetify.min.css'
 import 'vuetify/dist/vuetify.min.css'
 
@@ -26,6 +27,11 @@ export default new Router({
       path: '/Departments',
       name: 'Departments',
       component: Departments
+    },
+    {
+      path: '/Employees',
+      name: 'Employees',
+      component: Employees
     }
   ]
 })
