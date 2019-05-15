@@ -30,8 +30,7 @@
                   <v-btn small v-on:click="loginAccess()" color="primary">Login</v-btn>
                 </v-card-actions>
               </v-card>
-              <ErrorMessage error-text="Password Incorrect" :error-login="errorLogin"></ErrorMessage>
-              <ErrorMessage error-text="Connection Problems" :error-login="errorLogin2"></ErrorMessage>
+              <ErrorMessage :error-text="errorText" :error-login="errorLogin"></ErrorMessage>
             </v-flex>
           </v-layout>
         </v-container>
@@ -47,7 +46,7 @@ export default {
     email: null,
     password: null,
     errorLogin: false,
-    errorLogin2: false
+    errorText: ''
   }),
   methods: {
     loginAccess: function(event) {
@@ -55,16 +54,18 @@ export default {
         .then(response => {
           response.data.map(user => {
             if(this.email == user.email && this.password == user.senha) {
-              sessionStorage.setItem('user', user)
-              this.errorLogin = false
-              this.errorLogin2 = false
+              sessionStorage.setItem('admin', user.admin)
               this.$router.push("/Departments")   
             } else {
               this.errorLogin = true
+              this.errorText = 'Incorrect Password'
             }
           })   
         })
-        .catch(error => this.errorLogin2 = true);
+        .catch(error => {
+          this.errorLogin = true
+          this.errorText = 'Connection Problems'
+        });
     }
   },
   components: { ErrorMessage }

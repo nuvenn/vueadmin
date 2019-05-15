@@ -8,10 +8,10 @@
             <v-subheader>
               <h2>Employees</h2>
             </v-subheader>
-            <v-form ref="form" class="form-inline">
+            <!-- <v-form ref="form" class="form-inline">
               <v-text-field v-model="employee" label="Employee Name"></v-text-field>
               <v-btn small color="primary" dark>Add Employee</v-btn>
-            </v-form>
+            </v-form> -->
             <v-card v-for="employee in employees" :key="employee.id">
               <v-list>
                 <v-list-tile avatar>
@@ -21,6 +21,12 @@
                   <v-list-tile-content>
                     <v-list-tile-title>{{ employee.name }}</v-list-tile-title>
                   </v-list-tile-content>
+                  <v-btn fab dark small color="blue">
+                    <v-icon dark>add</v-icon>
+                  </v-btn>
+                  <v-btn fab dark small color="cyan">
+                    <v-icon dark>edit</v-icon>
+                  </v-btn>
                   <v-btn fab dark small color="pink">
                     <v-icon dark>remove</v-icon>
                   </v-btn>
