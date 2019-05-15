@@ -30,6 +30,8 @@
                   <v-btn small v-on:click="loginAccess()" color="primary">Login</v-btn>
                 </v-card-actions>
               </v-card>
+              <ErrorMessage error-text="Password Incorrect" :error-login="errorLogin"></ErrorMessage>
+              <ErrorMessage error-text="Connection Problems" :error-login="errorLogin2"></ErrorMessage>
             </v-flex>
           </v-layout>
         </v-container>
@@ -39,10 +41,13 @@
 </template>
 <script>
 import LoginService from "../services/LoginService";
+import ErrorMessage from './utils/ErrorMessage'
 export default {
   data: () => ({
     email: null,
-    password: null
+    password: null,
+    errorLogin: false,
+    errorLogin2: false
   }),
   methods: {
     loginAccess: function(event) {
@@ -50,16 +55,19 @@ export default {
         .then(response => {
           response.data.map(user => {
             if(this.email == user.email && this.password == user.senha) {
-              // sessionStorage.setItem('access_token', response)
-              this.$router.push("/Departments");   
+              sessionStorage.setItem('user', user)
+              this.errorLogin = false
+              this.errorLogin2 = false
+              this.$router.push("/Departments")   
             } else {
-              console.log('User not found')
+              this.errorLogin = true
             }
           })   
         })
-        .catch(error => console.log(error));
+        .catch(error => this.errorLogin2 = true);
     }
-  }
+  },
+  components: { ErrorMessage }
 };
 </script>
 <!-- Add "scoped" attribute to limit CSS to this component only -->
