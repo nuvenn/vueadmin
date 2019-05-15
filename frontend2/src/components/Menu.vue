@@ -1,12 +1,25 @@
 
 <template>
+  <nav>
     <v-toolbar>
-        <v-toolbar-title>Admin</v-toolbar-title>
-        <v-spacer></v-spacer>
-        <v-btn  v-on:click="logOut()">
-        Sair
+      <v-toolbar-items>
+        <v-btn flat>
+          <router-link class="nav-link" to="/Departments">
+            Departments
+          </router-link>
         </v-btn>
+        <v-btn flat>
+          <router-link class="nav-link" to="/Employees">
+            Employees
+          </router-link>
+        </v-btn>
+      </v-toolbar-items>
+      <v-spacer></v-spacer>
+      <v-btn  v-on:click="logOut()">
+      Sair
+      </v-btn>
     </v-toolbar>
+  </nav>
 </template>
 <script>
 export default {
@@ -20,4 +33,8 @@ export default {
 </script>
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.nav-link {
+  text-decoration: none;
+  color: #FFFFFF;
+}
 </style>
