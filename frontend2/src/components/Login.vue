@@ -8,8 +8,21 @@
               <v-card class="elevation-12">
                 <v-card-text>
                   <v-form>
-                    <v-text-field v-model="user" prepend-icon="person" name="usuario" label="User" type="text"></v-text-field>
-                    <v-text-field v-model="password" prepend-icon="lock" name="password" label="Password" id="password" type="password"></v-text-field>
+                    <v-text-field
+                      v-model="email"
+                      prepend-icon="person"
+                      name="email"
+                      label="E-mail"
+                      type="text"
+                    ></v-text-field>
+                    <v-text-field
+                      v-model="password"
+                      prepend-icon="lock"
+                      name="password"
+                      label="Password"
+                      id="password"
+                      type="password"
+                    ></v-text-field>
                   </v-form>
                 </v-card-text>
                 <v-card-actions>
@@ -25,15 +38,29 @@
   </section>
 </template>
 <script>
+import LoginService from "../services/LoginService";
 export default {
   data: () => ({
-    user: null,
+    email: null,
     password: null
   }),
   methods: {
-
+    loginAccess: function(event) {
+      LoginService.loginAccess(this.email, this.password)
+        .then(response => {
+          response.data.map(user => {
+            if(this.email == user.email && this.password == user.senha) {
+              // sessionStorage.setItem('access_token', response)
+              this.$router.push("/Departments");   
+            } else {
+              console.log('User not found')
+            }
+          })   
+        })
+        .catch(error => console.log(error));
+    }
   }
-}
+};
 </script>
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>

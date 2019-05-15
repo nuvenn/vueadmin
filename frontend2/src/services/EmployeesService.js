@@ -5,8 +5,8 @@ export default {
     id: '',
     name: '',
     email: '',
-	senha: '',
-	department: '',
+    senha: '',
+    department: '',
     admin: false
   },
   getEmployees: function () {

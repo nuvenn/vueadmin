@@ -5,10 +5,12 @@
         <Menu></Menu>
         <v-layout align-center justify-center class="department-content">
           <v-flex xs12 sm8 md4>
-            <v-subheader><h1>Departments</h1></v-subheader>
+            <v-subheader>
+              <h1>Departments</h1>
+            </v-subheader>
             <v-form ref="form" class="form-inline">
-                <v-text-field v-model="department" label="Department Name"></v-text-field>
-                <v-btn small color="primary" dark>Add Department</v-btn>
+              <v-text-field v-model="department" label="Department Name"></v-text-field>
+              <v-btn small color="primary" dark>Add Department</v-btn>
             </v-form>
             <v-card v-for="department in departments" :key="department.id">
               <v-list>
@@ -32,36 +34,38 @@
   </section>
 </template>
 <script>
-import DepartmentsService from '../services/DepartmentsService'
-import Menu from './Menu'
+import DepartmentsService from "../services/DepartmentsService";
+import Menu from "./Menu";
 export default {
+  beforeCreate: function() {
+    // if (!sessionStorage.access_token) {
+    //   this.$router.push('/')
+    // }
+  },
   data: () => ({
     departments: null,
-    department: ''
+    department: ""
   }),
-  methods: {
-  
-  },
-  created () {
-    DepartmentsService.getDepartments().then(
-      response => {
-        this.departments = response.data
-      }).catch(
-      error => console.log(error)
-    )
+  methods: {},
+  created() {
+    DepartmentsService.getDepartments()
+      .then(response => {
+        this.departments = response.data;
+      })
+      .catch(error => console.log(error));
   },
   components: { Menu }
-}
+};
 </script>
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .department-content {
-    padding: 1em;
+  padding: 1em;
 }
 .form-inline {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    align-items: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
 }
 </style>
