@@ -21,13 +21,13 @@
                   <v-list-tile-content>
                     <v-list-tile-title>{{ department.id + " " + department.name }}</v-list-tile-title>
                   </v-list-tile-content>
-                  <v-btn fab dark small color="blue">
+                  <v-btn v-if="admin" fab dark small color="blue">
                     <v-icon dark>add</v-icon>
                   </v-btn>
                   <v-btn fab dark small color="cyan">
                     <v-icon dark>edit</v-icon>
                   </v-btn>
-                  <v-btn fab dark small color="pink">
+                  <v-btn v-if="admin" fab dark small color="pink">
                     <v-icon dark>remove</v-icon>
                   </v-btn>
                 </v-list-tile>
@@ -43,17 +43,16 @@
 import DepartmentsService from "../services/DepartmentsService";
 import Menu from "./Menu";
 export default {
-  beforeCreate: function() {
-    // if (!sessionStorage.access_token) {
-    //   this.$router.push('/')
-    // }
-  },
   data: () => ({
     departments: null,
-    department: ""
+    department: "",
+    admin: false
   }),
   methods: {},
   created() {
+    if (sessionStorage.admin === "true") {
+      this.admin = true
+    }
     DepartmentsService.getDepartments()
       .then(response => {
         this.departments = response.data;
