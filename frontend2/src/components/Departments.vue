@@ -5,7 +5,11 @@
         <Menu></Menu>
         <v-layout align-center justify-center class="department-content">
           <v-flex xs12 sm8 md4>
-            <v-subheader>Departments</v-subheader>
+            <v-subheader><h1>Departments</h1></v-subheader>
+            <v-form ref="form" class="form-inline">
+                <v-text-field v-model="department" label="Department Name"></v-text-field>
+                <v-btn small color="primary" dark>Add Department</v-btn>
+            </v-form>
             <v-card v-for="department in departments" :key="department.id">
               <v-list>
                 <v-list-tile avatar>
@@ -15,6 +19,9 @@
                   <v-list-tile-content>
                     <v-list-tile-title>{{ department.id + " " + department.name }}</v-list-tile-title>
                   </v-list-tile-content>
+                  <v-btn fab dark small color="pink">
+                    <v-icon dark>remove</v-icon>
+                  </v-btn>
                 </v-list-tile>
               </v-list>
             </v-card>
@@ -29,7 +36,8 @@ import DepartmentsService from '../services/DepartmentsService'
 import Menu from './Menu'
 export default {
   data: () => ({
-    departments: null
+    departments: null,
+    department: ''
   }),
   methods: {
   
@@ -49,5 +57,11 @@ export default {
 <style scoped>
 .department-content {
     padding: 1em;
+}
+.form-inline {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
 }
 </style>

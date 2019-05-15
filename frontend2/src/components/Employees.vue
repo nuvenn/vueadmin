@@ -5,7 +5,11 @@
         <Menu></Menu>
         <v-layout align-center justify-center class="employee-content">
           <v-flex xs12 sm8 md4>
-            <v-subheader>Employees</v-subheader>
+            <v-subheader><h2>Employees</h2></v-subheader>
+            <v-form ref="form" class="form-inline">
+                <v-text-field v-model="employee" label="Employee Name"></v-text-field>
+                <v-btn small color="primary" dark>Add Employee</v-btn>
+            </v-form>
             <v-card v-for="employee in employees" :key="employee.id">
               <v-list>
                 <v-list-tile avatar>
@@ -15,6 +19,9 @@
                   <v-list-tile-content>
                     <v-list-tile-title>{{ employee.name }}</v-list-tile-title>
                   </v-list-tile-content>
+                  <v-btn fab dark small color="pink">
+                    <v-icon dark>remove</v-icon>
+                  </v-btn>
                 </v-list-tile>
               </v-list>
             </v-card>
@@ -29,7 +36,8 @@ import EmployeesService from '../services/EmployeesService'
 import Menu from './Menu'
 export default {
   data: () => ({
-    employees: null
+    employees: null,
+    employee: ''
   }),
   methods: {
   
@@ -48,6 +56,12 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .employee-content {
-    padding: 1em;
+  padding: 1em;
+}
+.form-inline {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
 }
 </style>
