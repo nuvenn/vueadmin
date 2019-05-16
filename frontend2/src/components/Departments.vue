@@ -3,15 +3,14 @@
     <v-app dark>
       <v-content>
         <Menu></Menu>
-        <v-layout align-center justify-center class="department-content">
-          <v-flex xs12 sm8 md4>
+        <v-layout class="department-content">
+          <v-flex xs12 sm6 md6>
             <v-subheader>
               <h1>Departments</h1>
             </v-subheader>
-            <!-- <v-form ref="form" class="form-inline">
-              <v-text-field v-model="department" label="Department Name"></v-text-field>
-              <v-btn small color="primary" dark>Add Department</v-btn>
-            </v-form> -->
+            <router-link :to="{ name: 'departmentDetails', params: { name: 'details' }}">
+              <v-btn color="blue">Create</v-btn>
+            </router-link>
             <v-card v-for="department in departments" :key="department.id">
               <v-list>
                 <v-list-tile avatar>
@@ -21,20 +20,16 @@
                   <v-list-tile-content>
                     <v-list-tile-title>{{ department.id + " " + department.name }}</v-list-tile-title>
                   </v-list-tile-content>
-                  <v-btn v-if="admin" fab dark small color="blue">
-                    <v-icon dark>add</v-icon>
-                  </v-btn>
-                  <v-btn fab dark small color="cyan">
-                    <v-icon dark>edit</v-icon>
-                  </v-btn>
-                  <v-btn v-if="admin" fab dark small color="pink">
-                    <v-icon dark>remove</v-icon>
-                  </v-btn>
+                  <router-link :to="{ name: 'departmentDetails', params: { name: 'details', id: department.id }}">
+                    <v-btn color="cyan">Edit</v-btn>
+                  </router-link>
+                  <v-btn color="pink">Remove</v-btn>
                 </v-list-tile>
               </v-list>
             </v-card>
           </v-flex>
-        </v-layout>
+          <router-view />
+        </v-layout>  
       </v-content>
     </v-app>
   </section>

@@ -5,6 +5,7 @@ import axios from 'axios'
 import VueAxios from 'vue-axios'
 import Login from '../components/Login'
 import Departments from '../components/Departments'
+import DepartmentDetail from '../components/DepartmentDetail'
 import Employees from '../components/Employees'
 import 'vuetify/dist/vuetify.min.css'
 import 'vuetify/dist/vuetify.min.css'
@@ -14,24 +15,24 @@ Vue.use(Router)
 Vue.use(VueAxios, axios)
 
 export default new Router({
-  beforeCreate () {
-    console.log('teste')
-  },
+  mode: 'history',
   routes: [
     {
       path: '/',
-      name: 'Login',
       component: Login
     },
     {
       path: '/Departments',
-      name: 'Departments',
-      component: Departments
+      component: Departments,
+      name: 'departments',
+      children: [
+        {path: ':name', name: 'departmentDetails', component: DepartmentDetail}
+      ]
     },
     {
       path: '/Employees',
-      name: 'Employees',
-      component: Employees
+      component: Employees,
+      name: 'employees'
     }
   ]
 })

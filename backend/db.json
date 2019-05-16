@@ -4,7 +4,7 @@
       "id": 17,				
       "name": "Daniel de Sales",
       "email": "ssales.daniel@gmail.com",
-	    "senha": "admin145",
+	    "senha": "123",
 	    "department": "Financial",
 	    "admin": true
     },
@@ -12,7 +12,7 @@
       "id": 42,				
       "name": "Ana Bolena",
       "email": "ana.bolena@gmail.com",
-      "senha": "bolena222",
+      "senha": "222",
       "department": "Technology",
       "admin": false
     }

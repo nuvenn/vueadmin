@@ -3,15 +3,12 @@
     <v-app dark>
       <v-content>
         <Menu></Menu>
-        <v-layout align-center justify-center class="employee-content">
-          <v-flex xs12 sm8 md4>
+        <v-layout class="employee-content">
+          <v-flex xs12 sm6 md6>
             <v-subheader>
               <h2>Employees</h2>
             </v-subheader>
-            <!-- <v-form ref="form" class="form-inline">
-              <v-text-field v-model="employee" label="Employee Name"></v-text-field>
-              <v-btn small color="primary" dark>Add Employee</v-btn>
-            </v-form> -->
+            <v-btn color="blue">Create</v-btn>
             <v-card v-for="employee in employees" :key="employee.id">
               <v-list>
                 <v-list-tile avatar>
@@ -21,15 +18,8 @@
                   <v-list-tile-content>
                     <v-list-tile-title>{{ employee.name }}</v-list-tile-title>
                   </v-list-tile-content>
-                  <v-btn v-if="admin" fab dark small color="blue">
-                    <v-icon dark>add</v-icon>
-                  </v-btn>
-                  <v-btn fab dark small color="cyan">
-                    <v-icon dark>edit</v-icon>
-                  </v-btn>
-                  <v-btn v-if="admin" fab dark small color="pink">
-                    <v-icon dark>remove</v-icon>
-                  </v-btn>
+                  <v-btn color="cyan">Edit</v-btn>
+                  <v-btn color="pink">Remove</v-btn>
                 </v-list-tile>
               </v-list>
             </v-card>

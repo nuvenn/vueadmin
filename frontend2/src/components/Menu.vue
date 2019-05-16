@@ -3,10 +3,10 @@
     <v-toolbar>
       <v-toolbar-items>
         <v-btn flat>
-          <router-link class="nav-link" to="/Departments">Departments</router-link>
+          <router-link class="nav-link" :to="{name: 'departments'}">Departments</router-link>
         </v-btn>
         <v-btn flat>
-          <router-link class="nav-link" to="/Employees">Employees</router-link>
+          <router-link class="nav-link" :to="{name: 'employees'}">Employees</router-link>
         </v-btn>
       </v-toolbar-items>
       <v-spacer></v-spacer>
