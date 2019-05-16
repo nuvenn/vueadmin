@@ -4,6 +4,11 @@
     <v-subheader>
       <h1>Departments</h1>
     </v-subheader>
+    <router-link class="nav-link" :to="{name: 'DepartmentDetail', params: { name: 'DepartmentDetail' }}">
+      <v-btn v-if="admin" dark small color="blue">
+        Add
+      </v-btn>
+    </router-link>
     <v-card v-for="department in departments" :key="department.id">
       <v-list>
         <v-list-tile avatar>
@@ -13,11 +18,6 @@
           <v-list-tile-content>
             <v-list-tile-title>{{ department.id + " " + department.name }}</v-list-tile-title>
           </v-list-tile-content>
-          <router-link class="nav-link" :to="{name: 'DepartmentDetail', params: { name: 'DepartmentDetail' }}">
-            <v-btn v-if="admin" fab dark small color="blue">
-              <v-icon dark>add</v-icon>
-            </v-btn>
-          </router-link>
           <router-link class="nav-link" :to="{name: 'DepartmentDetail', params: { name: 'DepartmentDetail', id: department.id }}">
             <v-btn fab dark small color="cyan">
               <v-icon dark>

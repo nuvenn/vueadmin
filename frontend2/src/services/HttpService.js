@@ -9,7 +9,6 @@ export default {
     let instance = {
       method: method,
       url: url,
-      headers: headers,
       data: data
     }
     return axios(instance)

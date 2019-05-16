@@ -5,18 +5,18 @@
       <v-card>
         <form>
           <v-text-field class="field"
-            v-model="id"
+            v-model="department.id"
             label="Id"
             required
           >
           </v-text-field>
           <v-text-field class="field"
-            v-model="name"
+            v-model="department.name"
             label="Name"
             required
           >
           </v-text-field>
-          <v-btn color="success" v-on:click="saveDepartment(id)">submit</v-btn>
+          <v-btn color="success" v-on:click="saveDepartment(department)">submit</v-btn>
           <v-btn>clear</v-btn>
           <router-link class="nav-link" :to="{name: 'Departments', params: { name: 'Departments' }}"><v-btn color="cyan">return</v-btn></router-link>
         </form>
@@ -27,15 +27,17 @@
 <script>
 export default {
   created() {
-    this.id = this.$route.params.id
+    this.department.id = this.$route.params.id
   },
   data: () => ({
-    id: "",
-    name: ""
+    department: {
+      id: "",
+      name: ""
+    }
   }),
   methods: {
-    saveDepartment: function(id) {
-      console.log(id)
+    saveDepartment: function(department) {
+        
     }
   }
 };
