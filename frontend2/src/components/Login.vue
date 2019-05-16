@@ -55,7 +55,7 @@ export default {
           response.data.map(user => {
             if(this.email == user.email && this.password == user.senha) {
               sessionStorage.setItem('admin', user.admin)
-              this.$router.push({ name: 'Departments'})   
+              this.$router.push({ name: 'Departments', params: { name: 'Departments' } })   
             } else {
               this.errorLogin = true
               this.errorText = 'Incorrect Password'

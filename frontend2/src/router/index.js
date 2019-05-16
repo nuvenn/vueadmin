@@ -15,13 +15,10 @@ Vue.use(Router)
 Vue.use(VueAxios, axios)
 
 export default new Router({
-  beforeCreate () {
-    console.log('teste')
-  },
+  mode: 'history',
   routes: [
     {
       path: '/',
-      name: 'Login',
       component: Login
     },
     {
@@ -40,6 +37,6 @@ export default new Router({
           component: Employees
         }    
       ]  
-    },
+    }
   ]
 })
