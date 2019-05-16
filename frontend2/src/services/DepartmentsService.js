@@ -12,6 +12,12 @@ export default {
       'http://localhost:3001/department'
     )
   },
+  getDepartmentDetail: function (id) {
+    return HttpService.request(
+      'GET',
+      'http://localhost:3001/department/' + id
+    )
+  },
   saveDepartment: function (data) {
     let type = 'POST'
     let param = ''

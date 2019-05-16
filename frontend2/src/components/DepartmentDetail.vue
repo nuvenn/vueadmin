@@ -28,8 +28,10 @@
 import DepartmentsService from "../services/DepartmentsService";
 export default {
   created() {
-    this.department.id = this.$route.params.id
-    this.department.name = this.$route.params.departmentName
+    DepartmentsService.getDepartmentDetail(this.$route.params.id).then(response => {
+      this.department = Object.assign(this.department, response.data);
+    })
+    .catch(error => console.log(error));
   },
   data: () => ({
     department: {
