@@ -25,6 +25,7 @@
   </v-layout>
 </template>
 <script>
+import DepartmentsService from "../services/DepartmentsService";
 export default {
   created() {
     this.department.id = this.$route.params.id
@@ -37,7 +38,7 @@ export default {
   }),
   methods: {
     saveDepartment: function(department) {
-        
+      DepartmentsService.saveDepartment(department)
     }
   }
 };

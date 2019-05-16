@@ -1,34 +1,32 @@
 {
   "employee": [
     {
-      "id": 17,				
+      "id": 17,
       "name": "Daniel de Sales",
       "email": "ssales.daniel@gmail.com",
-<<<<<<< HEAD
-	    "senha": "145",
-=======
-	    "senha": "123",
->>>>>>> 3c84e3e7e6485013ab56936a4df8f99d04730c27
-	    "department": "Financial",
-	    "admin": true
+      "senha": "145",
+      "department": "Financial",
+      "admin": true
     },
     {
-      "id": 42,				
+      "id": 42,
       "name": "Ana Bolena",
       "email": "ana.bolena@gmail.com",
-      "senha": "222",
+      "senha": "bolena222",
       "department": "Technology",
       "admin": false
     }
   ],
   "department": [
     {
-      "id": 1,				
-      "name": "Financial"
+      "id": 1
     },
-	  {
-      "id": 2,				
+    {
+      "id": 2,
       "name": "Technology"
+    },
+    {
+      "id": 3
     }
   ]
 }

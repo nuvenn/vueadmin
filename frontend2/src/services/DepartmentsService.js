@@ -5,6 +5,7 @@ export default {
     id: '',
     name: ''
   },
+  departments: [],
   getDepartments: function () {
     return HttpService.request(
       'GET',
@@ -12,27 +13,32 @@ export default {
     )
   },
   saveDepartment: function (data) {
-    if(data.id) {
-      return HttpService.request(
-        'POST',
-        'http://localhost:3001/department',
-        data
-      )
-    } else {
-      return HttpService.request(
-        'PUT',
-        'http://localhost:3001/department/' + id
-      )
-    }
+    this.departments.map(function(department) {
+      if(data.id == department.id) {
+        return HttpService.request(
+          'PUT',
+          'http://localhost:3001/department/' + data.id
+        )
+      }
+    })
+    return HttpService.request(
+      'POST',
+      'http://localhost:3001/department',
+      data
+    )
   },
   deleteDepartment: function (id) {
     return HttpService.request(
       'DELETE',
-      'http://localhost:3001/department/' + id
+      'http://localhost:3001/department/' + id,
+      data
     )
   },
   setDepartment: function (department) {
     this.department = department
+  },
+  setDepartments: function (departments) {
+    this.departments = departments
   },
   unsetDepartment: function (department) {
     this.department = {

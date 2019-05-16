@@ -56,6 +56,7 @@ export default {
     DepartmentsService.getDepartments()
       .then(response => {
         this.departments = response.data;
+        DepartmentsService.setDepartments(response.data)
       })
       .catch(error => console.log(error));
   },
