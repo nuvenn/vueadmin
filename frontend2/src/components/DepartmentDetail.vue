@@ -17,7 +17,7 @@
           >
           </v-text-field>
           <v-btn color="success" v-on:click="saveDepartment(department)">submit</v-btn>
-          <v-btn>clear</v-btn>
+          <v-btn v-on:click="clearDepartment()">clear</v-btn>
           <router-link class="nav-link" :to="{name: 'Departments', params: { name: 'Departments' }}"><v-btn color="cyan">return</v-btn></router-link>
         </form>
       </v-card>
@@ -43,6 +43,12 @@ export default {
         this.$router.push({ name: 'Departments', params: { name: 'Departments' } })
       })
       .catch(error => console.log(error));
+    },
+    clearDepartment: function() {
+      this.department =  {
+        id: "",
+        name: ""
+      }
     }
   }
 };
