@@ -6,7 +6,6 @@ export default {
     name: ''
   },
   departments: [],
-  type: '',
   getDepartments: function () {
     return HttpService.request(
       'GET',

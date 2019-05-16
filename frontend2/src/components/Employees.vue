@@ -25,7 +25,7 @@
                 </v-icon>
               </v-btn>
             </router-link> 
-            <v-btn v-if="admin" fab dark small color="pink">
+            <v-btn v-if="admin" v-on:click="deleteEmployee(employee)" fab dark small color="pink">
               <v-icon dark>remove</v-icon>
             </v-btn>
           </v-list-tile>
@@ -49,6 +49,20 @@ export default {
     admin: false
   }),
   methods: {
+    deleteEmployee: function(employee) {
+      EmployeesService.deleteEmployee(employee.id).then(response => {
+         this.getEmployees()
+      })
+      .catch(error => console.log(error));
+    },
+    getEmployees: function() {
+      EmployeesService.getEmployees()
+      .then(response => {
+        this.employees = response.data;
+        EmployeesService.setEmployees(response.data)
+      })
+      .catch(error => console.log(error));
+    },
     handleEdit: function() {
       this.$router.push("/Departments/1");
     }
@@ -57,11 +71,7 @@ export default {
     if (sessionStorage.admin === "true") {
       this.admin = true
     }
-    EmployeesService.getEmployees()
-      .then(response => {
-        this.employees = response.data;
-      })
-      .catch(error => console.log(error));
+    this.getEmployees()
   },
   components: { Menu }
 };

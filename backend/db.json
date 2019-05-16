@@ -1,7 +1,7 @@
 {
   "employee": [
     {
-      "id": 17,
+      "id": 5,
       "name": "Daniel de Sales",
       "email": "ssales.daniel@gmail.com",
       "senha": "145",
@@ -9,18 +9,34 @@
       "admin": true
     },
     {
-      "id": 42,
+      "id": 21,
       "name": "Ana Bolena",
       "email": "ana.bolena@gmail.com",
-      "senha": "bolena222",
-      "department": "Technology",
-      "admin": false
+      "senha": "222",
+      "department": "Tech",
+      "admin": true
+    },
+    {
+      "id": 31,
+      "name": "Batman",
+      "email": "batman@gmail.com",
+      "senha": "111",
+      "department": "Police",
+      "admin": true
     }
   ],
   "department": [
     {
-      "id": "2",
+      "id": "1",
       "name": "Tech"
+    },
+    {
+      "id": "2",
+      "name": "Financial"
+    },
+    {
+      "id": "3",
+      "name": "Police"
     }
   ]
 }
