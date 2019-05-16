@@ -3,14 +3,14 @@
     <v-flex xs12 sm6 md6>
       <v-subheader>Department Detail</v-subheader>
       <v-card>
-        <form>
-          <v-text-field class="field"
+        <form padding-form>
+          <v-text-field class="padding-form"
             v-model="department.id"
             label="Id"
             required
           >
           </v-text-field>
-          <v-text-field class="field"
+          <v-text-field class="padding-form"
             v-model="department.name"
             label="Name"
             required
@@ -40,7 +40,7 @@ export default {
   methods: {
     saveDepartment: function(department) {
       DepartmentsService.saveDepartment(department).then(response => {
-    
+        this.$router.push({ name: 'Departments', params: { name: 'Departments' } })
       })
       .catch(error => console.log(error));
     }
@@ -49,7 +49,7 @@ export default {
 </script>
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.field {
-  padding: 10px;
+.padding-form {
+  padding: 15px;
 }
 </style>

@@ -8,6 +8,7 @@ import Main from '../components/Main'
 import Departments from '../components/Departments'
 import DepartmentDetail from '../components/DepartmentDetail'
 import Employees from '../components/Employees'
+import EmployeeDetail from '../components/EmployeeDetail'
 import 'vuetify/dist/vuetify.min.css'
 import 'vuetify/dist/vuetify.min.css'
 
@@ -41,6 +42,11 @@ export default new Router({
           path: ':name',
           name: 'Employees',
           component: Employees
+        },
+        {
+          path: ':name',
+          name: 'EmployeeDetail',
+          component: EmployeeDetail
         }    
       ]  
     }
