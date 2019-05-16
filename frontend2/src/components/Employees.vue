@@ -18,7 +18,7 @@
             <v-list-tile-content>
               <v-list-tile-title>{{ employee.name }}</v-list-tile-title>
             </v-list-tile-content>
-            <router-link class="nav-link" :to="{name: 'EmployeeDetail', params: { name: 'EmployeeDetail', id: employee.id, employeeName: employee.name }}">
+            <router-link class="nav-link" :to="{name: 'EmployeeDetail', params: { name: 'EmployeeDetail', id: employee.id }}">
               <v-btn fab dark small color="cyan">
                 <v-icon dark>
                   edit

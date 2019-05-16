@@ -16,6 +16,12 @@ export default {
       'http://localhost:3001/employee'
     )
   },
+  getEmployeeDetail: function (id) {
+    return HttpService.request(
+      'GET',
+      'http://localhost:3001/employee/' + id
+    )
+  },
   saveEmployee: function (data) {
     let type = 'POST'
     let param = ''

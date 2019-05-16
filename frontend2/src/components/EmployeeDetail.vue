@@ -52,8 +52,10 @@
 import EmployeesService from "../services/EmployeesService";
 export default {
   created() {
-    this.employee.id = this.$route.params.id
-    this.employee.name = this.$route.params.employeeName
+    EmployeesService.getEmployeeDetail(this.$route.params.id).then(response => {
+      this.employee = Object.assign(this.employee, response.data);
+    })
+    .catch(error => console.log(error));
   },
   data: () => ({
     employee: {
