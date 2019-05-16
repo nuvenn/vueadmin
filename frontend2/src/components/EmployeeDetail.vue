@@ -16,8 +16,32 @@
             required
           >
           </v-text-field>
+          <v-text-field class="padding-form"
+            v-model="employee.email"
+            label="E-mail"
+            required
+          >
+          </v-text-field>
+          <v-text-field class="padding-form"
+            v-model="employee.password"
+            label="Password"
+            required
+          >
+          </v-text-field>
+          <v-text-field class="padding-form"
+            v-model="employee.department"
+            label="Department"
+            required
+          >
+          </v-text-field>
+          <v-text-field class="padding-form"
+            v-model="employee.admin"
+            label="Admin?"
+            required
+          >
+          </v-text-field>
           <v-btn color="success" v-on:click="saveEmployee(employee)">submit</v-btn>
-          <v-btn>clear</v-btn>
+          <v-btn v-on:click="clearEmployee()">clear</v-btn>
           <router-link class="nav-link" :to="{name: 'Employees', params: { name: 'Employees' }}"><v-btn color="cyan">return</v-btn></router-link>
         </form>
       </v-card>
@@ -34,7 +58,11 @@ export default {
   data: () => ({
     employee: {
       id: "",
-      name: ""
+      name: "",
+      email: "",
+      password: "",
+      department: "",
+      admin: ""
     }
   }),
   methods: {
@@ -43,6 +71,16 @@ export default {
         this.$router.push({ name: 'Employees', params: { name: 'Employees' } })
       })
       .catch(error => console.log(error));
+    },
+    clearEmployee: function() {
+      this.employee = {
+        id: "",
+        name: "",
+        email: "",
+        password: "",
+        department: "",
+        admin: ""
+      }
     }
   }
 };
