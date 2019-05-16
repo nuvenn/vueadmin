@@ -31,7 +31,6 @@ export default {
     return HttpService.request(
       'DELETE',
       'http://localhost:3001/department/' + id,
-      data
     )
   },
   setDepartment: function (department) {

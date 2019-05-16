@@ -19,14 +19,8 @@
   ],
   "department": [
     {
-      "id": 1
-    },
-    {
-      "id": 2,
+      "id": 1,
       "name": "Technology"
-    },
-    {
-      "id": 3
     }
   ]
 }

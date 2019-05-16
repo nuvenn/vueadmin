@@ -25,7 +25,7 @@
               </v-icon>
             </v-btn>
           </router-link>  
-          <v-btn v-if="admin" fab dark small color="pink">
+          <v-btn v-if="admin" v-on:click="deleteDepartment(department)" fab dark small color="pink">
             <v-icon dark>remove</v-icon>
           </v-btn>
         </v-list-tile>
@@ -48,17 +48,27 @@ export default {
     department: "",
     admin: false
   }),
-  methods: {},
-  created() {
-    if (sessionStorage.admin === "true") {
-      this.admin = true
-    }
-    DepartmentsService.getDepartments()
+  methods: {
+    deleteDepartment: function(department) {
+      DepartmentsService.deleteDepartment(department.id).then(response => {
+         this.getDepartments()
+      })
+      .catch(error => console.log(error));
+    },
+    getDepartments: function() {
+      DepartmentsService.getDepartments()
       .then(response => {
         this.departments = response.data;
         DepartmentsService.setDepartments(response.data)
       })
       .catch(error => console.log(error));
+    }
+  },
+  created() {
+    if (sessionStorage.admin === "true") {
+      this.admin = true
+    }
+    this.getDepartments()
   },
   components: { Menu }
 };
