@@ -13,20 +13,25 @@
           <v-list-tile-content>
             <v-list-tile-title>{{ department.id + " " + department.name }}</v-list-tile-title>
           </v-list-tile-content>
-          <v-btn v-if="admin" fab dark small color="blue">
-            <v-icon dark>add</v-icon>
-          </v-btn>
-          <v-btn fab dark small color="cyan" v-on:click="handleEdit()">
-            <v-icon dark>
-              edit
-            </v-icon>
-          </v-btn>
+          <router-link class="nav-link" :to="{name: 'Create', params: { nameChild: 'Create' }}">
+            <v-btn v-if="admin" fab dark small color="blue">
+              <v-icon dark>add</v-icon>
+            </v-btn>
+          </router-link>
+          <router-link class="nav-link" :to="{name: 'Edit', params: { nameChild2: 'Edit' }}">
+            <v-btn fab dark small color="cyan">
+              <v-icon dark>
+                edit
+              </v-icon>
+            </v-btn>
+          </router-link>  
           <v-btn v-if="admin" fab dark small color="pink">
             <v-icon dark>remove</v-icon>
           </v-btn>
         </v-list-tile>
       </v-list>
     </v-card>
+    <router-view></router-view>
   </v-flex>
 </v-layout>
 </template>

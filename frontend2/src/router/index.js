@@ -4,8 +4,9 @@ import Router from 'vue-router'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 import Login from '../components/Login'
-import Departments from '../components/Departments'
 import Main from '../components/Main'
+import Departments from '../components/Departments'
+import DepartmentDetail from '../components/DepartmentDetail'
 import Employees from '../components/Employees'
 import 'vuetify/dist/vuetify.min.css'
 import 'vuetify/dist/vuetify.min.css'
@@ -29,7 +30,19 @@ export default new Router({
         {
           path: ':name',
           name: 'Departments',
-          component: Departments  
+          component: Departments,
+          children: [
+            {
+              path: ':nameChild',
+              name: 'Create',
+              component: DepartmentDetail
+            },
+            {
+              path: ':nameChild2',
+              name: 'Edit',
+              component: DepartmentDetail
+            }
+          ]  
         },
         {
           path: ':name',
