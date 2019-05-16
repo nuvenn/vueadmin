@@ -53,7 +53,7 @@ export default {
       LoginService.loginAccess(this.email, this.password)
         .then(response => {
           response.data.map(user => {
-            if(this.email == user.email && this.password == user.senha) {
+            if(this.email == user.email && this.password == user.password) {
               sessionStorage.setItem('admin', user.admin)
               this.$router.push({ name: 'Departments', params: { name: 'Departments' } })   
             } else {
