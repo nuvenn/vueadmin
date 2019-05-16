@@ -6,11 +6,11 @@ After it, still in the terminal open another window in the folder '/frontend2' a
 
 Open your browser in the url 'http://localhost:8080/'
 
-Users: 
-email: batman@gmail.com
-password: 111
-*admin
+Users: <br /> 
+email: batman@gmail.com <br />
+password: 111 <br />
+*admin <br />
 
-email: ana.bolena@gmail.com
-password: 222
+email: ana.bolena@gmail.com <br />
+password: 222 <br />
 *not admin
