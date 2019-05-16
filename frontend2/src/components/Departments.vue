@@ -16,9 +16,9 @@
             <v-icon color="pink">star</v-icon>
           </v-list-tile-action>
           <v-list-tile-content>
-            <v-list-tile-title>{{ department.id + " " + department.name }}</v-list-tile-title>
+            <v-list-tile-title>{{ department.id + " - " + department.name }}</v-list-tile-title>
           </v-list-tile-content>
-          <router-link class="nav-link" :to="{name: 'DepartmentDetail', params: { name: 'DepartmentDetail', id: department.id }}">
+          <router-link class="nav-link" :to="{name: 'DepartmentDetail', params: { name: 'DepartmentDetail', id: department.id, departmentName: department.name }}">
             <v-btn fab dark small color="cyan">
               <v-icon dark>
                 edit

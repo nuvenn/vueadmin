@@ -6,6 +6,7 @@ export default {
     name: ''
   },
   departments: [],
+  type: '',
   getDepartments: function () {
     return HttpService.request(
       'GET',
@@ -13,17 +14,17 @@ export default {
     )
   },
   saveDepartment: function (data) {
+    let type = 'POST'
+    let param = ''
     this.departments.map(function(department) {
       if(data.id == department.id) {
-        return HttpService.request(
-          'PUT',
-          'http://localhost:3001/department/' + data.id
-        )
+        type = 'PUT'
       }
     })
+    param = type == 'PUT' ? data.id : ''
     return HttpService.request(
-      'POST',
-      'http://localhost:3001/department',
+      type,
+      'http://localhost:3001/department/' +  param,
       data
     )
   },

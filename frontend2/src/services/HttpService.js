@@ -5,7 +5,7 @@ import VueAxios from 'vue-axios'
 Vue.use(VueAxios, axios)
 
 export default {
-  request: function (method, url, headers, data) {
+  request: function (method, url, data) {
     let instance = {
       method: method,
       url: url,

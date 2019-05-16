@@ -29,6 +29,7 @@ import DepartmentsService from "../services/DepartmentsService";
 export default {
   created() {
     this.department.id = this.$route.params.id
+    this.department.name = this.$route.params.departmentName
   },
   data: () => ({
     department: {
@@ -38,7 +39,10 @@ export default {
   }),
   methods: {
     saveDepartment: function(department) {
-      DepartmentsService.saveDepartment(department)
+      DepartmentsService.saveDepartment(department).then(response => {
+    
+      })
+      .catch(error => console.log(error));
     }
   }
 };
