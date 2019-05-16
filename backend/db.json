@@ -14,7 +14,7 @@
       "email": "ana.bolena@gmail.com",
       "senha": "222",
       "department": "Tech",
-      "admin": true
+      "admin": false
     },
     {
       "id": 31,
@@ -22,7 +22,7 @@
       "email": "batman@gmail.com",
       "senha": "111",
       "department": "Police",
-      "admin": true
+      "admin": false
     }
   ],
   "department": [
