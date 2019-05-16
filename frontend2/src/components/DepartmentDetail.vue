@@ -16,8 +16,9 @@
             required
           >
           </v-text-field>
-          <v-btn>submit</v-btn>
+          <v-btn color="success" v-on:click="saveDepartment(id)">submit</v-btn>
           <v-btn>clear</v-btn>
+          <router-link class="nav-link" :to="{name: 'Departments', params: { name: 'Departments' }}"><v-btn color="cyan">return</v-btn></router-link>
         </form>
       </v-card>
     </v-flex>
@@ -26,14 +27,17 @@
 <script>
 export default {
   created() {
-    console.log(this.$route.params)
     this.id = this.$route.params.id
   },
   data: () => ({
     id: "",
     name: ""
   }),
-  methods: {}
+  methods: {
+    saveDepartment: function(id) {
+      console.log(id)
+    }
+  }
 };
 </script>
 <!-- Add "scoped" attribute to limit CSS to this component only -->

@@ -11,6 +11,24 @@ export default {
       'http://localhost:3001/department'
     )
   },
+  postDepartment: function () {
+    return HttpService.request(
+      'POST',
+      'http://localhost:3001/department'
+    )
+  },
+  putDepartment: function (id) {
+    return HttpService.request(
+      'PUT',
+      'http://localhost:3001/department/' + id
+    )
+  },
+  deleteDepartment: function (id) {
+    return HttpService.request(
+      'DELETE',
+      'http://localhost:3001/department/' + id
+    )
+  },
   setDepartment: function (department) {
     this.department = department
   },
