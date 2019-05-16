@@ -31,6 +31,7 @@
           <v-text-field class="padding-form"
             v-model="employee.department"
             label="Department"
+            :disabled="!this.admin"
             required
           >
           </v-text-field>
@@ -52,6 +53,9 @@
 import EmployeesService from "../services/EmployeesService";
 export default {
   created() {
+    if (sessionStorage.admin === "true") {
+      this.admin = true
+    }
     EmployeesService.getEmployeeDetail(this.$route.params.id).then(response => {
       this.employee = Object.assign(this.employee, response.data);
     })
@@ -65,7 +69,8 @@ export default {
       password: "",
       department: "",
       admin: ""
-    }
+    },
+    admin: false
   }),
   methods: {
     saveEmployee: function(employee) {
