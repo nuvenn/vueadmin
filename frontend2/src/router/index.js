@@ -31,18 +31,11 @@ export default new Router({
           path: ':name',
           name: 'Departments',
           component: Departments,
-          children: [
-            {
-              path: ':nameChild',
-              name: 'Create',
-              component: DepartmentDetail
-            },
-            {
-              path: ':nameChild2',
-              name: 'Edit',
-              component: DepartmentDetail
-            }
-          ]  
+        },
+        {
+          path: ':name',
+          name: 'DepartmentDetail',
+          component: DepartmentDetail
         },
         {
           path: ':name',

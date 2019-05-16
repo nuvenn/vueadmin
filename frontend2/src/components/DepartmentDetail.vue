@@ -25,6 +25,10 @@
 </template>
 <script>
 export default {
+  created() {
+    console.log(this.$route.params)
+    this.id = this.$route.params.id
+  },
   data: () => ({
     id: "",
     name: ""
@@ -38,5 +42,3 @@ export default {
   padding: 10px;
 }
 </style>
-
->>>>>>> 3c84e3e7e6485013ab56936a4df8f99d04730c27
